@@ -512,6 +512,8 @@ if ( ! class_exists( 'OT_Settings' ) ) {
         'field_post_type'   => isset( $post_type ) && ! empty( $post_type ) ? $post_type : 'post',
         'field_taxonomy'    => isset( $taxonomy ) && ! empty( $taxonomy ) ? $taxonomy : 'category',
         'field_min_max_step'=> isset( $min_max_step ) && ! empty( $min_max_step ) ? $min_max_step : '0,100,1',
+        'field_min_len'     => isset( $min_len ) && ! empty( $min_len ) ? $min_len : '',
+        'field_max_len'     => isset( $max_len ) && ! empty( $max_len ) ? $max_len : '',
         'field_condition'   => isset( $condition ) && ! empty( $condition ) ? $condition : '',
         'field_operator'    => isset( $operator ) && ! empty( $operator ) ? $operator : 'and',
         'field_class'       => isset( $class ) ? $class : '',

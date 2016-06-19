@@ -2807,7 +2807,7 @@ if ( ! function_exists( 'ot_type_text' ) ) {
       echo '<div class="format-setting-inner">';
       
         /* build text input */
-        echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat option-tree-ui-input ' . esc_attr( $field_class ) . '" />';
+        echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" minlength="' . esc_attr( $field_min_len ) . '" maxlength="' . esc_attr( $field_max_len ) . '" value="' . esc_attr( $field_value ) . '" class="widefat option-tree-ui-input ' . esc_attr( $field_class ) . '" />';
         
       echo '</div>';
     
@@ -2857,6 +2857,8 @@ if ( ! function_exists( 'ot_type_textarea' ) ) {
             'media_buttons' => apply_filters( 'ot_media_buttons', true, $field_id ),
             'textarea_name' => esc_attr( $field_name ),
             'textarea_rows' => esc_attr( $field_rows ),
+            'min_len'       => esc_attr( $field_min_len ),
+            'max_len'       => esc_attr( $field_max_len ),
             'tinymce'       => apply_filters( 'ot_tinymce', true, $field_id ),              
             'quicktags'     => apply_filters( 'ot_quicktags', array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ), $field_id )
           ) 
@@ -2908,8 +2910,8 @@ if ( ! function_exists( 'ot_type_textarea_simple' ) ) {
           $field_value = wpautop( $field_value );
         
         /* build textarea simple */
-        echo '<textarea class="textarea ' . esc_attr( $field_class ) . '" rows="' . esc_attr( $field_rows )  . '" cols="40" name="' . esc_attr( $field_name ) .'" id="' . esc_attr( $field_id ) . '">' . esc_textarea( $field_value ) . '</textarea>';
-        
+        echo '<textarea class="textarea ' . esc_attr( $field_class ) . '" rows="' . esc_attr( $field_rows )  . '" cols="40" minlength="' . esc_attr( $field_min_len ) . '" maxlength="' . esc_attr( $field_max_len ) . '" name="' . esc_attr( $field_name ) .'" id="' . esc_attr( $field_id ) . '">' . esc_textarea( $field_value ) . '</textarea>';
+
       echo '</div>';
       
     echo '</div>';

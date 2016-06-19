@@ -1706,6 +1706,9 @@ if ( ! function_exists( 'ot_export_php_settings_array' ) ) {
             $_setting_post_type = isset( $setting['post_type'] ) ? $setting['post_type'] : '';
             $_setting_taxonomy = isset( $setting['taxonomy'] ) ? $setting['taxonomy'] : '';
             $_setting_min_max_step = isset( $setting['min_max_step'] ) ? $setting['min_max_step'] : '';
+            $_setting_min_len = isset( $setting['min_len'] ) ? $setting['min_len'] : '';
+            $_setting_max_len = isset( $setting['max_len'] ) ? $setting['max_len'] : '';
+
             $_setting_class = isset( $setting['class'] ) ? $setting['class'] : '';
             $_setting_condition = isset( $setting['condition'] ) ? $setting['condition'] : '';
             $_setting_operator = isset( $setting['operator'] ) ? $setting['operator'] : '';
@@ -1751,6 +1754,8 @@ if ( ! function_exists( 'ot_export_php_settings_array' ) ) {
             'post_type'   => '$_setting_post_type',
             'taxonomy'    => '$_setting_taxonomy',
             'min_max_step'=> '$_setting_min_max_step',
+            'min_len'     => '$_setting_min_len',
+            'max_len'     => '$_setting_max_len',
             'class'       => '$_setting_class',
             'condition'   => '$_setting_condition',
             'operator'    => '$_setting_operator'$setting_choices
@@ -1774,6 +1779,8 @@ if ( ! function_exists( 'ot_export_php_settings_array' ) ) {
         'post_type'   => '$_post_type',
         'taxonomy'    => '$_taxonomy',
         'min_max_step'=> '$_min_max_step',
+        'min_len'     => '$_min_len',
+        'max_len'     => '$_max_len',
         'class'       => '$_class',
         'condition'   => '$_condition',
         'operator'    => '$_operator'$choices$setting_settings
@@ -4199,6 +4206,22 @@ if ( ! function_exists( 'ot_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
+            <div class="description">' . __( '<strong>Minimum Length</strong>: Add a numeric value in the following format <code>0,255</code>. The value represent the minimum length (min_len/minlength) option type. ', 'option-tree' ) . '</div>
+            <div class="format-setting-inner">
+              <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][min_len]" value="' . ( isset( $setting['min_len'] ) ? esc_attr( $setting['min_len'] ) : '' ) . '" class="widefat option-tree-ui-input" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+        <div class="format-settings">
+          <div class="format-setting type-text wide-desc">
+            <div class="description">' . __( '<strong>Maximum Length</strong>: Add a numeric value in the following format <code>0,255</code>.The value represent the maximum length (max_len/maxlength) option type. ', 'option-tree' ) . '</div>
+            <div class="format-setting-inner">
+              <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][max_len]" value="' . ( isset( $setting['max_len'] ) ? esc_attr( $setting['max_len'] ) : '' ) . '" class="widefat option-tree-ui-input" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+        <div class="format-settings">
+          <div class="format-setting type-text wide-desc">
             <div class="description">' . __( '<strong>CSS Class</strong>: Add and optional class to this option type.', 'option-tree' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][class]" value="' . ( isset( $setting['class'] ) ? esc_attr( $setting['class'] ) : '' ) . '" class="widefat option-tree-ui-input" autocomplete="off" />
@@ -4494,6 +4517,8 @@ if ( ! function_exists( 'ot_list_item_view' ) ) {
           'field_post_type'   => isset( $field['post_type'] ) && ! empty( $field['post_type'] ) ? $field['post_type'] : 'post',
           'field_taxonomy'    => isset( $field['taxonomy'] ) && ! empty( $field['taxonomy'] ) ? $field['taxonomy'] : 'category',
           'field_min_max_step'=> isset( $field['min_max_step'] ) && ! empty( $field['min_max_step'] ) ? $field['min_max_step'] : '0,100,1',
+          'field_min_len'     => isset( $field['min_len'] ) && ! empty( $field['min_len'] ) ? $field['min_len'] : '',
+          'field_max_len'     => isset( $field['max_len'] ) && ! empty( $field['max_len'] ) ? $field['max_len'] : '',
           'field_class'       => isset( $field['class'] ) ? $field['class'] : '',
           'field_condition'   => isset( $field['condition'] ) ? $field['condition'] : '',
           'field_operator'    => isset( $field['operator'] ) ? $field['operator'] : 'and',
@@ -4636,6 +4661,8 @@ if ( ! function_exists( 'ot_social_links_view' ) ) {
           'field_post_type'   => isset( $field['post_type'] ) && ! empty( $field['post_type'] ) ? $field['post_type'] : 'post',
           'field_taxonomy'    => isset( $field['taxonomy'] ) && ! empty( $field['taxonomy'] ) ? $field['taxonomy'] : 'category',
           'field_min_max_step'=> isset( $field['min_max_step'] ) && ! empty( $field['min_max_step'] ) ? $field['min_max_step'] : '0,100,1',
+          'field_min_len'     => isset( $field['min_len'] ) && ! empty( $field['min_len'] ) ? $field['min_len'] : '',
+          'field_max_len'     => isset( $field['max_len'] ) && ! empty( $field['max_len'] ) ? $field['max_len'] : '',
           'field_class'       => isset( $field['class'] ) ? $field['class'] : '',
           'field_condition'   => isset( $field['condition'] ) ? $field['condition'] : '',
           'field_operator'    => isset( $field['operator'] ) ? $field['operator'] : 'and',

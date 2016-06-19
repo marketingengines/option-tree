@@ -104,6 +104,8 @@ if ( ! class_exists( 'OT_Meta_Box' ) ) {
             'field_post_type'   => isset( $field['post_type'] ) && ! empty( $field['post_type'] ) ? $field['post_type'] : 'post',
             'field_taxonomy'    => isset( $field['taxonomy'] ) && ! empty( $field['taxonomy'] ) ? $field['taxonomy'] : 'category',
             'field_min_max_step'=> isset( $field['min_max_step'] ) && ! empty( $field['min_max_step'] ) ? $field['min_max_step'] : '0,100,1',
+            'field_min_len'     => isset( $field['min_len'] ) && ! empty( $field['min_len'] ) ? $field['min_len'] : '',
+            'field_max_len'     => isset( $field['max_len'] ) && ! empty( $field['max_len'] ) ? $field['max_len'] : '',
             'field_class'       => isset( $field['class'] ) ? $field['class'] : '',
             'field_condition'   => isset( $field['condition'] ) ? $field['condition'] : '',
             'field_operator'    => isset( $field['operator'] ) ? $field['operator'] : 'and',
